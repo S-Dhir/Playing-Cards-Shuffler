@@ -5,5 +5,7 @@ Program written for practice that takes a deck of cards and shuffles. The user i
 
  - Number of players
  - Whether there should be 2 jokers
+## How to run
+Unfortunately, the algorithm does not have a client side
 ## License
 MIT - You can do anything :)
