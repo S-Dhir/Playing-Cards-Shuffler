@@ -4,14 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PlayingCardsShuffler
+namespace PlayingCardsShuffler;
+
+//Enums were made for this!
+public enum Symbols
 {
-    public enum Symbols
-    {
-        Clubs,
-        Diamonds,
-        Spades,
-        Hearts,
-        Joker
-    }
+    Clubs,
+    Diamonds,
+    Spades,
+    Hearts,
+    Joker
 }

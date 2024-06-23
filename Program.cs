@@ -20,6 +20,8 @@ public static class Program
 
         joker = (jockerPrompt.Key == ConsoleKey.N);
 
+
+        //Counting the number of cards. Are there jokers?
         float numberofCards = (52F + 2F * (joker ? 0F : 1F));
         var cardsPerPlayer =  (byte)float.Floor(numberofCards / (float)playerCount);
         
@@ -27,12 +29,19 @@ public static class Program
         Console.WriteLine("cardsPerPlayer * playerCount : " + (cardsPerPlayer * playerCount));
         Console.WriteLine($"number of cards : {numberofCards}");
 
+        //Generates a repeating list of all players of length numberofCards in this fashion
+        //a,b,c,a,b,c,a,b,c...
+        //and then shuffles this list
         var randomizedOnwersList = randomizedOwnersList(playerCount, (int)numberofCards);
+
+        //I would have preffered to read from a stream as it advances the the position in the array automatically
         var index = 0;
         
 
         //Final list of all cards with their owners.
         var Table = CardTable.Table;
+
+        //Assigning owners with help of randomized list 
         for (int i = 0; i < Table.Length;)
         {
             for (int k = 0; k < Table[i].Length;)
@@ -59,14 +68,18 @@ public static class Program
         Console.WriteLine("Error!");
         Main(args); return;
     }
+
     public static int[] randomizedOwnersList(int playerCount, int cardCount)
     {
+        //not randomized
         int[] owners = new int[cardCount];
         for (int i = 0; i!=cardCount;)
         {
             owners[i] = i%playerCount;
             i++;
         }
+        
+        //randomizes
         Random rng = new();
         for (int i = 0; i!= owners.Length;)
         {
@@ -77,7 +90,7 @@ public static class Program
 
             i++;
         }
-
+    //here it's randomized
         return owners;
     }
 }

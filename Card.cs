@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace PlayingCardsShuffler;
 
+//OOP
+//Each playing card has a number, a symbol and an owner(where the card currently is)
+//The owner can change. Rest everything is constant
 public class Card
 {
     public byte owner;
@@ -32,6 +35,10 @@ public class Card
         }
     }
 }
+
+//a 2d array containing a table of all cards. Each column is a different symbol with a 5th column for jockers
+//Learnt about jagged and multi-dimensional arrays while programming this. In a multidimensional array, all columns have the same nmber of rows.
+//Jagged arrays are arrays of arrays. Each child array in the parent can be of a different length
 public class CardTable
 {
     public static readonly Card[][] Table = getTable();
